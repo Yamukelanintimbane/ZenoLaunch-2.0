@@ -705,5 +705,35 @@
               pointer;
   }
 
+/* Make the container responsive */
+.container {
+    width: 100%;
+    max-width: 1200px; /* or whatever max width you prefer */
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center; /* to center the content */
+}
+
+/* Make the image responsive */
+.hero-logo {
+    max-width: 100%; /* ensures image never exceeds its container */
+    height: auto; /* maintains aspect ratio */
+    display: block; /* removes extra space below image */
+    margin: 0 auto; /* centers the image */
+}
+
+/* Optional: Add media queries for different screen sizes */
+@media (max-width: 768px) {
+    .hero-logo {
+        max-width: 80%; /* smaller on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-logo {
+        max-width: 70%; /* even smaller on very small screens */
+    }
+}
+
 
     
