@@ -106,21 +106,23 @@
 
   // Map enquiry types to readable format
         const enquiryTypes = {
-            'web-development': 'Web Development',
-            'mobile-apps': 'Mobile Apps',
-            'ecommerce': 'E-Commerce',
-            'business-registration': 'Business Registration',
-            'other': 'Other'
-        };
+  'web-development': 'Web Development',
+  'mobile-apps': 'Mobile Apps',
+  'ecommerce': 'E-Commerce',
+  'business-registration': 'Business Registration',
+  'other': 'Other'
+};
 
-       // Use consistent keys without extra spaces
-        const plan = {
-            'starter': 'Starter Pack (R999)',
-            'basic': 'Basic (R1,499)',
-            'professional': 'Professional (R3,999)',
-            'ecommerce-pro': 'E-Commerce Pro (R4,999)',
-            'enterprise': 'Enterprise (R7,499)'
-        };
+const planNames = {
+  'starter-pack': 'Starter Pack (R999)',
+  'basic': 'Basic (R1,499)',
+  'professional': 'Professional (R3,999)',
+  'enterprise': 'Enterprise (R7,499)',
+  'ecommerce-pro': 'eCommerce Pro (R4,999/mo)',
+  'business-launch-pack': 'Business Launch Pack (R14,999)'
+};
+
+
 
         // Get form data
         function getFormData() {
@@ -210,7 +212,7 @@
                 `👤 Name: ${formData.name}\n` +
                 `📧 Email: ${formData.email}\n` +
                 `📌 Enquiry Type: ${enquiryTypes[formData.enquiryType]}\n` +
-                `💰 plan: ${plan[formData.plan]}\n` +
+                `💰 plan: ${planNames[formData.plan]}\n` +
                 `✉️ Message: ${formData.message}`;
             
             // Show success message
@@ -231,7 +233,7 @@
             if (!validateForm()) return;
             
             const formData = getFormData();
-            const subject = `New ${enquiryTypes[formData.enquiryType]} Inquiry | Selected Plan: ${plan[formData.plan]}`;
+            const subject = `Enquiry About ${enquiryTypes[formData.enquiryType]} - My Plan: ${planNames[formData.plan]}`;
             const body = `Dear Yamukelani,\n\n ${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`;
             
             
