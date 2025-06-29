@@ -293,10 +293,46 @@
             background: var(--secondary);
         }
 
+        /* ===== Responsive Design ===== */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--header-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 40px 0;
+                transition: left 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
          #hero {
             position: relative;
             height: 100vh;
-            min-height: 500px; /* Minimum height for mobile */
             color: white;
             text-align: center;
             display: flex;
@@ -304,7 +340,6 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            padding: 20px; /* Added padding for mobile */
         }
 
         .hero-slideshow {
@@ -343,21 +378,18 @@
         .hero-content {
             max-width: 800px;
             padding: 0 20px;
-            animation: fadeInUp 1s ease-out;
         }
 
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            line-height: 1.2;
         }
 
         p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            line-height: 1.6;
         }
 
         .btn {
@@ -368,124 +400,13 @@
             text-decoration: none;
             border-radius: 4px;
             font-weight: bold;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+            transition: background-color 0.3s;
         }
 
         .btn:hover {
             background-color: #c0392b;
-            transform: translateY(-2px);
         }
 
-        /* Slide Indicators */
-        .slide-indicators {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 10;
-        }
-
-        .indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .indicator.active {
-            background: white;
-            transform: scale(1.2);
-        }
-
-        /* Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* ===== Responsive Design ===== */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            p {
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            #hero {
-                height: 90vh;
-                min-height: 400px;
-                padding-top: 60px; /* Account for fixed header */
-            }
-
-            h1 {
-                font-size: 2rem;
-                margin-bottom: 15px;
-            }
-
-            p {
-                font-size: 1rem;
-                margin-bottom: 25px;
-            }
-
-            .btn {
-                padding: 10px 25px;
-                font-size: 0.9rem;
-            }
-
-            .slide-indicators {
-                bottom: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            p {
-                font-size: 0.9rem;
-            }
-
-            .hero-content {
-                padding: 0 15px;
-            }
-
-            .slide-indicators {
-                gap: 8px;
-            }
-
-            .indicator {
-                width: 10px;
-                height: 10px;
-            }
-        }
-
-        /* Landscape orientation for mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            #hero {
-                height: auto;
-                padding: 80px 20px 40px;
-            }
-            
-            .hero-content {
-                margin: 40px 0;
-            }
-        }
 
 
  .form-group {
