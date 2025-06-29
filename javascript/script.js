@@ -1,11 +1,36 @@
-// Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links li a');
+    
+    // Toggle menu function
+    function toggleMenu() {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    }
+    
+    // Close menu after clicking a link
+    function closeMenu() {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+    }
+    
+    // Menu toggle click event
+    menuToggle.addEventListener('click', toggleMenu);
+    
+    // Add click event to all nav links
+    navItems.forEach(item => {
+        item.addEventListener('click', closeMenu);
+    });
+    
+    // Optional: Close when clicking outside the menu
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.nav-links') && !e.target.closest('.menu-toggle')) {
+            closeMenu();
+        }
+    });
+});
         // Dark Mode Toggle
         const themeToggle = document.getElementById('theme-toggle');
 
