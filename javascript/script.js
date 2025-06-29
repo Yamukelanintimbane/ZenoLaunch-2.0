@@ -113,83 +113,93 @@
             'other': 'Other'
         };
 
+       // Use consistent keys without extra spaces
+        const plan = {
+            'starter': 'Starter Pack (R999)',
+            'basic': 'Basic (R1,499)',
+            'professional': 'Professional (R3,999)',
+            'ecommerce-pro': 'E-Commerce Pro (R4,999)',
+            'enterprise': 'Enterprise (R7,499)'
+        };
+
         // Get form data
         function getFormData() {
             return {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 enquiryType: document.getElementById('enquiryType').value,
+                plan: document.getElementById('plan').value,
                 message: document.getElementById('message').value
             };
         }
 
-        // Validate form
-        /**
- * Validates the form data before submission.
- * Checks if required fields (name, email, message) are filled.
- * 
- * @returns {boolean} - Returns `true` if validation passes, `false` otherwise.
- */
-function validateForm() {
-    // Get form data
-    const formData = getFormData();
+                    // Validate form
+                    /**
+             * Validates the form data before submission.
+             * Checks if required fields (name, email, message) are filled.
+             * 
+             * @returns {boolean} - Returns `true` if validation passes, `false` otherwise.
+             */
+            function validateForm() {
+                // Get form data
+                const formData = getFormData();
 
-    // Check for empty fields
-    const missingFields = [];
-    if (!formData.name?.trim()) missingFields.push("Name");
-    if (!formData.email?.trim()) missingFields.push("Email");
-    if (!formData.message?.trim()) missingFields.push("Message");
+                // Check for empty fields
+                const missingFields = [];
+                if (!formData.name?.trim()) missingFields.push("Name");
+                if (!formData.email?.trim()) missingFields.push("Email");
+                if (!formData.message?.trim()) missingFields.push("Message");
 
-    // If any field is missing, show error and prevent submission
-    if (missingFields.length > 0) {
-        showValidationError(`Please fill in all required fields:\n${missingFields.join(", ")}`);
-        return false;
-    }
+                // If any field is missing, show error and prevent submission
+                if (missingFields.length > 0) {
+                    showValidationError(`Please fill in all required fields:\n${missingFields.join(", ")}`);
+                    return false;
+                }
 
-    // Additional validation (e.g., email format)
-    if (!isValidEmail(formData.email)) {
-        showValidationError("Please enter a valid email address.");
-        return false;
-    }
+                // Additional validation (e.g., email format)
+                if (!isValidEmail(formData.email)) {
+                    showValidationError("Please enter a valid email address.");
+                    return false;
+                }
 
-    // All checks passed
-    return true;
-}
+                // All checks passed
+                return true;
+            }
 
-/**
- * Displays a styled error message (replaces default `alert()`).
- * @param {string} message - The error message to display.
- */
-function showValidationError(message) {
-    // Create a modal or use a nicer alert (e.g., SweetAlert, Toast, or custom HTML)
-    const errorBox = document.createElement("div");
-    errorBox.className = "validation-error";
-    errorBox.innerHTML = `
-        <div class="error-content">
-            <span class="close-btn">&times;</span>
-            <p>${message}</p>
-        </div>
-    `;
-    document.body.appendChild(errorBox);
+            /**
+             * Displays a styled error message (replaces default `alert()`).
+             * @param {string} message - The error message to display.
+             */
+            function showValidationError(message) {
+                // Create a modal or use a nicer alert (e.g., SweetAlert, Toast, or custom HTML)
+                const errorBox = document.createElement("div");
+                errorBox.className = "validation-error";
+                errorBox.innerHTML = `
+                    <div class="error-content">
+                        <span class="close-btn">&times;</span>
+                        <p>${message}</p>
+                    </div>
+                `;
+                document.body.appendChild(errorBox);
 
-    // Close on button click
-    errorBox.querySelector(".close-btn").addEventListener("click", () => {
-        errorBox.remove();
-    });
+                // Close on button click
+                errorBox.querySelector(".close-btn").addEventListener("click", () => {
+                    errorBox.remove();
+                });
 
-    // Auto-close after 5 seconds
-    setTimeout(() => errorBox.remove(), 5000);
-}
+                // Auto-close after 5 seconds
+                setTimeout(() => errorBox.remove(), 5000);
+            }
 
-/**
- * Basic email validation.
- * @param {string} email - The email to validate.
- * @returns {boolean} - `true` if valid, `false` otherwise.
- */
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
+            /**
+             * Basic email validation.
+             * @param {string} email - The email to validate.
+             * @returns {boolean} - `true` if valid, `false` otherwise.
+             */
+            function isValidEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
 
         // Messenger button handler
         document.getElementById('messengerBtn').addEventListener('click', function() {
@@ -200,6 +210,7 @@ function isValidEmail(email) {
                 `👤 Name: ${formData.name}\n` +
                 `📧 Email: ${formData.email}\n` +
                 `📌 Enquiry Type: ${enquiryTypes[formData.enquiryType]}\n` +
+                `💰 plan: ${plan[formData.plan]}\n` +
                 `✉️ Message: ${formData.message}`;
             
             // Show success message
@@ -220,8 +231,9 @@ function isValidEmail(email) {
             if (!validateForm()) return;
             
             const formData = getFormData();
-            const subject = `Enquiry About ${enquiryTypes[formData.enquiryType]}`;
-            const body = `Dear Yamukelani,\n\n${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`;
+            const subject = `New ${enquiryTypes[formData.enquiryType]} Inquiry | Selected Plan: ${plan[formData.plan]}`;
+            const body = `Dear Yamukelani,\n\n ${formData.message}\n\nBest regards,\n${formData.name}\n${formData.email}`;
+            
             
             // Encode for mailto link
             const encodedSubject = encodeURIComponent(subject);
@@ -239,3 +251,29 @@ function isValidEmail(email) {
             // Reset form
             document.getElementById('contactForm').reset();
         });
+
+        // 
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
+        });
+       
+
+        //
+         // Auto-select plan when "Get Started" is clicked
+        function setSelectedPlan(planValue, planText) {
+            document.getElementById("plan").value = planValue;
+            
+            // Optional: Scroll to form
+            document.getElementById("contactForm").scrollIntoView({ behavior: "smooth" });
+        }
