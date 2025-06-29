@@ -41,6 +41,7 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="" id="theme-toggle" style="background-color: white;">🌙</a></li>
                 </ul>
@@ -51,14 +52,21 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section id="hero">
-        <div class="container">
+        <div class="hero-slideshow">
+            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')"></div>
+        </div>
+        
+        
+        <div class="hero-content">
             <img src="img/logo.png" class="hero-logo" alt="ZenoLaunch Logo">
             <p>"Your Gateway To The Internet" ~ ZenoLaunch</p>
             <a href="#contact" class="btn">Get In Touch</a>
         </div>
     </section>
+
 
     <!-- Services Section -->
     <section id="services">
@@ -104,7 +112,7 @@
                     <p>"Every line of code should solve a problem or enhance someone's experience. That's development with purpose." This philosophy drives my approach to front-end development, where I combine technical expertise in React, JavaScript, and UI/UX design with a deep understanding of local market needs.</p>
                     
                     <p>Through ZenoLaunch, I'm now focused on empowering other entrepreneurs with the technical tools to bring their visions to life. When I'm not coding, you'll find me exploring the intersection of AI and front-end development or mentoring upcoming developers in Durban's growing tech scene.</p>
-                    <br/><a href="https://yamukelanintimbane.ct.ws/?i=1" class="btn">Read More</a>
+                    <br/><a href="www.yamukelanintimbane.ct.ws" class="btn">Read More</a>
                 </div>
                 <div class="about-image-container" style="width: 100%;">
                     <div class="logo-frame">
@@ -189,6 +197,118 @@
         </div>
     </section>
 
+   <section id="pricing">
+    <div class="container">
+        <div class="section-title">
+            <h2>Simple, Transparent Pricing</h2>
+            <p>Choose the perfect plan for your business needs</p>
+        </div>
+        
+        <div class="pricing-grid">
+            <!-- Starter Pack -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Starter Pack</h3>
+                    <div class="pricing-price">R999</div>
+                    <div class="pricing-period">For new businesses</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>3-Page Website</li>
+                        <li>Basic Hosting (1 Year)</li>
+                        <li>1 Email Account</li>
+                    </ul>
+                    <a href="#contactForm" class="pricing-button" onclick="setSelectedPlan('starter-pack', 'Starter Pack (R999)')">Get Started</a>
+                </div>
+            </div>
+
+            <!-- Basic Plan -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Basic</h3>
+                    <div class="pricing-price">R1,499</div>
+                    <div class="pricing-period">Small projects</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>5-Page Website</li>
+                        <li>Mobile-Friendly</li>
+                        <li>Basic SEO</li>
+                    </ul>
+                    <a href="#contactForm" class="pricing-button" onclick="setSelectedPlan('basic', 'Basic (R1,499)')">Get Started</a>
+                </div>
+            </div>
+
+            <!-- Professional Plan -->
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Professional</h3>
+                    <div class="pricing-price">R3,999</div>
+                    <div class="pricing-period">Growing businesses</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>15-Page Website</li>
+                        <li>E-Commerce Ready</li>
+                        <li>Advanced SEO</li>
+                    </ul>
+                    <a href="#contactForm" class="pricing-button" onclick="setSelectedPlan('professional', 'Professional (R3,999)')">Get Started</a>
+                </div>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3 class="pricing-title">Enterprise</h3>
+                    <div class="pricing-price">R7,499</div>
+                    <div class="pricing-period">Large-scale projects</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li>Unlimited Pages</li>
+                        <li>Custom Web App</li>
+                        <li>24/7 Support</li>
+                    </ul>
+                    <a href="#contactForm" class="pricing-button" onclick="setSelectedPlan('enterprise', 'Enterprise (R7,499)')">Get Started</a>
+                </div>
+            </div>
+             <!-- Shopify-Style eCommerce Card -->
+            <div class="pricing-card shopify-style">
+                <div class="pricing-badge">
+                    <span class="best-value">BEST VALUE</span>
+                    <span class="save-badge">SAVE 20%</span>
+                </div>
+                <div class="pricing-header">
+                    <h3 class="pricing-title">eCommerce Pro</h3>
+                    <div class="pricing-price">
+                        <div class="pricing-price">R4,999</div>
+                        <span class="price">R4,999</span>
+                        <span class="period"></span>
+                    </div>
+                    <div class="pricing-period">Everything to sell online</div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Online store (100+ products)</li>
+                        <li><i class="fas fa-check"></i> Payment processing (PayFast, SnapScan)</li>
+                        <li><i class="fas fa-check"></i> Automated VAT calculations</li>
+                        <li><i class="fas fa-check"></i> SA-based hosting</li>
+                        <li><i class="fas fa-check"></i> 24/7 Support</li>
+                    </ul>
+                    <div class="pricing-cta">
+                        <a href="#contactForm" class="shopify-button" onclick="setSelectedPlan('ecommerce-pro', 'eCommerce Pro (R4,999/mo)')">Start Free Trial</a>
+                        <p class="small-text">14-day trial, no credit card</p>
+                    </div>
+                    <div class="special-offer">
+                        <i class="fas fa-gift"></i> <strong>Limited Offer:</strong> First 3 months at R3,999/mo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
      <!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -197,8 +317,8 @@
                 </div>
                 <div class="contact-container">
                     <div class="contact-info">
-                        <h3>Let's Work Together</h3>
-                        <p>Have a project in mind or want to discuss potential opportunities? Reach out to me through any of these channels.</p>
+                        <h3 style="text-align: left;">Let's Work Together</h3>
+                        <p style="text-align: left;">Have a project in mind or want to discuss potential opportunities? Reach out to me through any of these channels.</p>
                         <div class="contact-details">
                             <div>
                                 <i class="fas fa-envelope"></i>
@@ -221,31 +341,39 @@
                         </div>
                     </div>
                     <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="enquiryType">Enquiry Type: </label>
-                            <select id="enquiryType" required>
-                                <option value="" disabled selected>Select Enquiry Type</option>
-                                <option value="web-development">Web Development</option>
-                                <option value="mobile-apps">Mobile Apps</option>
-                                <option value="ecommerce">E-Commerce</option>
-                                <option value="business-registration">Business Registration</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message:</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        
-                        <button type="button" class="btn" id="messengerBtn" >Send via Messenger</button>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="enquiryType">Enquiry Type:</label>
+                        <select id="enquiryType" required>
+                            <option value="" disabled selected>Select Enquiry Type</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="business-registration">Business Registration</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="plan">Selected Plan:</label>
+                        <select id="plan" name="plan" required>
+                            <option value="" disabled selected>Select a plan</option>
+                            <option value="starter-pack">Starter Pack (R999)</option>
+                            <option value="basic">Basic (R1,499)</option>
+                            <option value="professional">Professional (R3,999)</option>
+                            <option value="ecommerce-pro">ecommerce-pro (R4, 999)</option>
+                            <option value="enterprise">Enterprise (R7,499)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="button" class="btn" id="messengerBtn" >Send via Messenger</button>
                         <button type="button" class="btn" id="emailBtn" style="background-color: orangered;">Send Email</button>
                         
                         <div id="messengerSuccess" class="success-message">
@@ -255,7 +383,7 @@
                             Thank you! Opening your email client...
                         </div>
                     </form>
-        
+                        
                     </div>
                 </div>
             </section>
@@ -325,5 +453,20 @@
         </div>
 
     <script src="javascript/script.js"></script>
+     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+            
+            function nextSlide() {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
+        });
+    </script>
 </body>
 </html>
